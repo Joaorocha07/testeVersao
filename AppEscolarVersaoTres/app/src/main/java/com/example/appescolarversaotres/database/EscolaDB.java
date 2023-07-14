@@ -1,6 +1,8 @@
 package com.example.appescolarversaotres.database;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -8,8 +10,14 @@ public class EscolaDB extends SQLiteOpenHelper {
     private static final String NOME_BANCO = "escola.db";
     private static final int VERSAO_BANCO = 1;
 
+    Cursor cursor;
+    SQLiteDatabase db;
+
     public EscolaDB(Context context) {
+
         super(context, NOME_BANCO, null, VERSAO_BANCO);
+
+        db=getWritableDatabase();
     }
 
     @Override
@@ -28,7 +36,10 @@ public class EscolaDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS Escola");
-        onCreate(db);
+
+    }
+
+    public void salvarDados(String tabela, ContentValues dados){
+        db.insert(tabela,null,dados);
     }
 }
