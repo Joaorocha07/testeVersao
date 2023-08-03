@@ -1,10 +1,8 @@
-package com.example.applistadecomprasversaodois.view;
+package com.example.applistadecomprasversaodois;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
-import com.example.applistadecomprasversaodois.R;
 
 public class MainActivity extends AppCompatActivity {
 
